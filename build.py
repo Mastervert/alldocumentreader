@@ -29,7 +29,7 @@ SCRIPTS = [
 HERE = os.path.dirname(os.path.abspath(__file__))
 
 def parse_args(argv):
-    src_dir = HERE
+    src_dir = os.path.join(HERE, "src")
     out = os.path.join(HERE, "index.html")
     deploy = False
     i = 1
