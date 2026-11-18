@@ -1,0 +1,19 @@
+{
+  "name": "all-documents-reader",
+  "version": "1.0.0",
+  "description": "All documents reader — an offline document reader/organizer web app, wrapped as an Android APK with Capacitor.",
+  "private": true,
+  "scripts": {
+    "bundle": "python3 build.py --deploy --out www/index.html",
+    "cap:sync": "npm run bundle && npx cap sync android",
+    "build:apk": "npm run cap:sync && cd android && ./gradlew assembleDebug",
+    "build:release": "npm run cap:sync && cd android && ./gradlew assembleRelease"
+  },
+  "dependencies": {
+    "@capacitor/android": "^6.1.2",
+    "@capacitor/core": "^6.1.2"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^6.1.2"
+  }
+}

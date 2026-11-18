@@ -1,0 +1,11 @@
+{
+  "appId": "com.raphael.alldocumentsreader",
+  "appName": "All documents reader",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "allowMixedContent": false
+  }
+}

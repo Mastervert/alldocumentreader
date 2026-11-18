@@ -1,0 +1,51 @@
+/* Icon Folder (vanilla port). Themes: paper (flat, uses your design tokens), glass-dark, glass-light. */
+.ifold{position:relative;isolation:isolate;display:block;width:100%;height:150px;cursor:pointer;user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent;outline:none;color:var(--if-ink);letter-spacing:-0.01em;opacity:0;transform:translateY(24px) scale(.94);transition:transform .8s cubic-bezier(.2,.8,.2,1),opacity .5s ease}
+.ifold[data-shown]{opacity:1;transform:none}
+.ifold[data-shown][data-lift]{transform:translateY(-4px) scale(1.02);z-index:2}
+.ifold:focus-visible{outline:2px solid var(--if-focus);outline-offset:4px;border-radius:20px}
+.ifold[data-sel]{outline:2px solid var(--if-focus);outline-offset:3px;border-radius:20px}
+.ifold-glow{position:absolute;left:8%;right:8%;top:14%;height:70%;border-radius:999px;pointer-events:none;z-index:-1;background:radial-gradient(closest-side,var(--if-glow),transparent);filter:blur(14px);opacity:.8}
+.ifold-back,.ifold-front{position:absolute;left:0;right:0;bottom:0}
+.ifold-back{top:9%;background:var(--if-back)}
+.ifold-front{height:60%;overflow:hidden;background:var(--if-front);transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.ifold[data-lift] .ifold-front{transform:translateY(4px)}
+.ifold svg.ifold-edge{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.ifold-back svg.ifold-edge path{fill:none;stroke:var(--if-back-edge);stroke-width:1.5}
+.ifold-front svg.ifold-edge path{fill:none;stroke-width:1.5}
+.ifold-fan{position:absolute;inset:0;pointer-events:none}
+.ifold-tile{position:absolute;left:50%;top:16%;width:var(--if-tile,48px);height:var(--if-tile,48px);margin-left:calc(var(--if-tile,48px) / -2);border-radius:26%;pointer-events:auto;backface-visibility:hidden;opacity:0;transition:transform .9s cubic-bezier(.2,.8,.2,1),opacity .5s}
+.ifold-tilein{position:relative;width:100%;height:100%;border-radius:inherit;overflow:hidden;background:var(--if-tile-bg);box-shadow:var(--if-tile-shadow);transition:transform .45s cubic-bezier(.2,.8,.2,1),filter .3s}
+.ifold-lab{position:absolute;bottom:100%;left:50%;margin-bottom:8px;white-space:nowrap;border-radius:999px;padding:3px 10px;font-size:12px;line-height:16px;font-weight:500;background:var(--if-pill);border:1px solid var(--if-pill-border);color:var(--if-ink);opacity:0;transform:translateX(-50%) translateY(6px);transition:opacity .25s,transform .35s cubic-bezier(.2,.8,.2,1);pointer-events:none;max-width:180px;overflow:hidden;text-overflow:ellipsis}
+.ifold-tile[data-hi] .ifold-lab{opacity:1;transform:translateX(-50%)}
+.ifold-title{position:absolute;left:14px;right:14px;top:22%;margin:0;font-size:17px;line-height:22px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ifold-meta{position:absolute;left:14px;bottom:12px;margin:0;font-size:12px;line-height:16px;color:var(--if-meta)}
+.ifold-badge{position:absolute;right:12px;bottom:10px;width:30px;height:30px;border-radius:10px;display:flex;align-items:center;justify-content:center}
+.ifold.ifold-rm,.ifold.ifold-rm *{transition:none!important}
+/* themes */
+.ifold,.ifold[data-theme="paper"]{--if-ink:var(--text-primary,#1C1B18);--if-meta:var(--text-secondary,#5A564B);--if-back:var(--muted,#EDE8DC);--if-back-edge:var(--border,#DAD3C3);--if-front:var(--surface-2,#fff);--if-edge-0:var(--border-strong,#C8C0AE);--if-edge-1:var(--border,#DAD3C3);--if-edge-2:var(--border,#DAD3C3);--if-glow:transparent;--if-pill:var(--surface-2,#fff);--if-pill-border:var(--border,#DAD3C3);--if-tile-bg:var(--surface-2,#fff);--if-tile-shadow:0 0 0 1px var(--border,#DAD3C3);--if-focus:var(--brand,#1B5E52)}
+.ifold[data-theme="paper"] .ifold-glow{display:none}
+.ifold[data-theme="glass-dark"]{--if-ink:#fff;--if-meta:rgba(255,255,255,.6);--if-back:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.008) 60%);--if-back-edge:rgba(255,255,255,.07);--if-front:linear-gradient(160deg,rgba(255,255,255,.09),rgba(255,255,255,.015) 55%),rgba(12,12,12,.78);--if-edge-0:rgba(255,255,255,.38);--if-edge-1:rgba(255,255,255,.1);--if-edge-2:rgba(255,255,255,0);--if-glow:rgba(255,255,255,.10);--if-pill:rgba(0,0,0,.55);--if-pill-border:rgba(255,255,255,.08);--if-tile-bg:#2a2a2a;--if-tile-shadow:0 18px 40px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.14);--if-focus:rgba(255,255,255,.4)}
+.ifold[data-theme="glass-light"]{--if-ink:#071039;--if-meta:rgba(7,16,57,.6);--if-back:linear-gradient(180deg,#fff,#f2f5fd);--if-back-edge:rgba(7,16,57,.08);--if-front:linear-gradient(160deg,#fff,#f5f7fd 55%,#eef2fc);--if-edge-0:rgba(255,255,255,1);--if-edge-1:rgba(7,16,57,.06);--if-edge-2:rgba(7,16,57,.04);--if-glow:rgba(255,255,255,.18);--if-pill:rgba(255,255,255,.8);--if-pill-border:rgba(0,0,0,.08);--if-tile-bg:#fff;--if-tile-shadow:0 18px 40px rgba(0,0,0,.18),0 0 0 1px rgba(0,0,0,.08);--if-focus:rgba(0,0,0,.35)}
+
+/* photo card: glass folder over a picture, rounded-square corners */
+.fcard{position:relative;height:150px;border-radius:22px;overflow:hidden;background-size:cover;background-position:center;isolation:isolate}
+.fcard::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.10);pointer-events:none;z-index:0}
+.fcard>.ifold{height:100%;position:relative;z-index:1}
+.ifold[data-theme="glass-photo"]{--if-ink:#fff;--if-meta:rgba(255,255,255,.86);--if-back:rgba(255,255,255,.10);--if-back-edge:rgba(255,255,255,.32);--if-front:linear-gradient(160deg,rgba(255,255,255,.16),rgba(255,255,255,0) 55%),linear-gradient(var(--if-tint,rgba(0,0,0,0)),var(--if-tint,rgba(0,0,0,0))),rgba(10,10,10,.5);--if-edge-0:rgba(255,255,255,.7);--if-edge-1:rgba(255,255,255,.25);--if-edge-2:rgba(255,255,255,.05);--if-glow:transparent;--if-pill:rgba(0,0,0,.55);--if-pill-border:rgba(255,255,255,.2);--if-tile-bg:rgba(255,255,255,.94);--if-tile-shadow:0 0 0 1px rgba(255,255,255,.6);--if-focus:#fff}
+.ifold[data-theme="glass-photo"] .ifold-glow{display:none}
+.ifold[data-theme="glass-photo"] .ifold-front{backdrop-filter:blur(14px) saturate(1.15);-webkit-backdrop-filter:blur(14px) saturate(1.15)}
+.ifold[data-theme="glass-photo"] .ifold-back{backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.ifold[data-theme="glass-photo"] .ifold-front{background:rgba(10,10,10,.72)}}
+.ifold[data-theme="glass-photo"] .ifold-title{text-shadow:0 1px 2px rgba(0,0,0,.35)}
+
+/* photo card: only the coloured glass pocket, no back plate and no fanned icons */
+.ifold[data-theme="glass-photo"] .ifold-back,.ifold[data-theme="glass-photo"] .ifold-fan{display:none}
+.ifold[data-theme="glass-photo"] .ifold-front{height:56%}
+.ifold[data-theme="glass-photo"] .ifold-title{top:16px}
+.ifold[data-theme="glass-photo"] .ifold-meta{white-space:normal;line-height:15px;bottom:10px;right:56px}
+
+/* glass pocket made from a pre-blurred copy of the photo, so nothing blurs outside the outline */
+.ifold[data-theme="glass-photo"] .ifold-front{background:none;backdrop-filter:none;-webkit-backdrop-filter:none}
+.ifold-blur{position:absolute;left:0;bottom:0;width:100%;height:178.6%;background-size:cover;background-position:center;transform:scale(1.04);pointer-events:none}
+.ifold-tint{position:absolute;inset:0;background:var(--if-front);pointer-events:none}
+.ifold[data-theme="glass-photo"] .ifold-title,.ifold[data-theme="glass-photo"] .ifold-meta,.ifold[data-theme="glass-photo"] .ifold-badge{z-index:1}
