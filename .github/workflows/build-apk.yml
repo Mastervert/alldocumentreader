@@ -37,11 +37,11 @@ jobs:
         run: npm install
 
       - name: Bundle the web app into www/
-        run: python3 build.py --deploy --out www/index.html
+        run: python3 build.py --deploy --src-dir src --out www/index.html
 
       - name: Copy config.js and icons into www/
         run: |
-          cp config.js www/config.js
+          cp src/config.js www/config.js
           mkdir -p www/icons
           cp icons/*.png www/icons/ 2>/dev/null || true
 
